@@ -20,16 +20,9 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-    - task: Docker@2
-      displayName: Build an image
-      inputs:
-        command: build
-        dockerfile: '**/Dockerfile'
 - task: Docker@2
   inputs:
     containerRegistry: 'AzureContainerRegistry'
-    repository: 'sa'
+    repository: 'sasa'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
-        tags: |
-          $(tag)
